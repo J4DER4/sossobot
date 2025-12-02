@@ -5,6 +5,7 @@ const commands = {
   jappadaida: 'Hyvä KIK!',
   ez4sik: 'https://soundcloud.com/the-haalarz/ez4sik',
   perjantai: 'https://www.ukko.fi/pojat',
+  vittu: 'kyllä se siitä..'
 };
 
 module.exports = {

@@ -11,19 +11,30 @@ const loadQuotes = async () => {
         const $ = cheerio.load(data);
 
         const quotes = [];
-        $('div.perfect-quotes').each((_i, el) => {
-            const children = $(el).children();
-            const quote = children.first().text().trim();
-            const author = children.last().text().trim();
-
-            if (quote) {
-                if (author && author.startsWith('-')) {
-                    quotes.push(`${quote}\n${author}`);
-                } else {
-                    quotes.push(quote);
-                }
-            }
-        });
+                $('div.perfect-quotes').each((_i, el) => {
+                    const authorElement = $(el).find('span');
+                    let author = null;
+                    let quote = '';
+        
+                    if (authorElement.length > 0) {
+                        author = authorElement.text().trim();
+                        // To get only the quote text, we can clone the element, remove the author span, and then get the text.
+                        const quoteElement = $(el).clone();
+                        quoteElement.find('span').remove();
+                        quote = quoteElement.text().trim();
+                    } else {
+                        quote = $(el).text().trim();
+                    }
+        
+        
+                    if (quote) {
+                        if (author) {
+                            quotes.push(`${quote}\n${author}`);
+                        } else {
+                            quotes.push(quote);
+                        }
+                    }
+                });
 
         quoteAmount = quotes.length;
         for (let i = 0; i < quoteAmount; i++) {
@@ -55,7 +66,7 @@ const findQuote = async (category) => {
     console.log("haetaan: " + category)
     for (let quote of quoteMap.values()) {
         if (quote.toLowerCase().includes(category.toLowerCase())) {
-            console.log("matchi: " + quote);
+            console.log("match: " + quote);
             found.push(quote);
         };
     };
