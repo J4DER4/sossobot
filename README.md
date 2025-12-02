@@ -42,15 +42,19 @@ A Telegram bot that provides quotes from sosso.fi and has some other fun command
 ## Available Commands
 
 ### Public Commands
-*   `moi`: Says "moi".
-*   `/sammakko`: Gets a random quote.
-*   `/sammakko <keyword>`: Searches for a quote with the given keyword.
-*   `/mita_sahko_tekee`: ...
-*   `/ok`: ...
-*   `/jappadaida`: ...
-*   `/ez4sik`: ...
-*   `/perjantai`: ...
-*   `/lavan_oikee_puoli` (and variations): ...
+*   `/moi`: Greets the user.
+*   `/sammakko`: Gets a random quote from Sössö's *sammakkopalsta*. **Note:** This command only works on Fridays.
+*   `/sammakko <keyword>`: Searches for a quote containing the given keyword.
+*   `/joulukalenteri`: Fetches the daily picture and text from Sössö's advent calendar.
+*   `/eiku`: Sends the classic "eiku" image.
+*   `/onema`: Sends the classic "onema" image.
+*   `/vittu`: Offers encouragement.
+*   `/mita_sahko_tekee`: Sähkö jakaa!
+*   `/ok`: A classic copypasta response.
+*   `/jappadaida`: Hyvä KIK!
+*   `/ez4sik`: Links to the Haalarz track.
+*   `/perjantai`: Links to a relevant site for Friday.
+*   `/lavan_oikee_puoli` (and variations): A counter that posts an image every 7th command use.
 
 ### Admin Commands
 These commands can only be used by the `OVERLORDID` users.
